@@ -490,12 +490,56 @@
           "value": "public"
         },
         {
-          "type": "STRING",
-          "value": "public(package)"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "public"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "FIELD",
+              "name": "package",
+              "content": {
+                "type": "ALIAS",
+                "content": {
+                  "type": "STRING",
+                  "value": "package"
+                },
+                "named": true,
+                "value": "package_param"
+              }
+            }
+          ]
         },
         {
-          "type": "STRING",
-          "value": "public(friend)"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "public"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "FIELD",
+              "name": "friend",
+              "content": {
+                "type": "ALIAS",
+                "content": {
+                  "type": "STRING",
+                  "value": "friend"
+                },
+                "named": true,
+                "value": "friend_param"
+              }
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -2897,8 +2941,17 @@
                 "value": "&"
               },
               {
-                "type": "STRING",
-                "value": "&mut"
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "&"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "mutable_keyword"
+                  }
+                ]
               }
             ]
           }
@@ -5099,6 +5152,10 @@
         ]
       }
     },
+    "mutable_keyword": {
+      "type": "STRING",
+      "value": "mut"
+    },
     "borrow_expression": {
       "type": "PREC",
       "value": 13,
@@ -6072,6 +6129,10 @@
         {
           "type": "SYMBOL",
           "name": "vector_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "global_literal"
         }
       ]
     },
@@ -6138,6 +6199,10 @@
     "byte_string_literal": {
       "type": "PATTERN",
       "value": "b\"(\\\\.|[^\\\\\"])*\""
+    },
+    "global_literal": {
+      "type": "PATTERN",
+      "value": "[A-Z_][0-9A-Z_]*"
     },
     "vector_literal": {
       "type": "SEQ",
@@ -6419,4 +6484,3 @@
     "_spec_block_target"
   ]
 }
-

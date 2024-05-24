@@ -80,7 +80,13 @@ module.exports = grammar({
 
         // parse top-level decl modifiers
         friend_declaration: $ => seq('friend', field('module', $.friend_access), ';'),
-        modifier: $ => choice('public', 'public(package)', 'public(friend)', 'entry', 'native'),
+        modifier: $ => choice(
+          'public',
+          seq('public', '(', field('package', alias('package', $.package_param), ')')),
+          seq('public', '(', field('friend', alias('friend', $.friend_param), ')')),
+          'entry',
+          'native'
+        ),
         ability: $ => choice(
             'copy',
             'drop',
@@ -437,7 +443,7 @@ module.exports = grammar({
             optional(field('type_arguments', $.type_arguments)),
         )),
         ref_type: $ => seq(
-            field('mutable', choice('&', '&mut')),
+            field('mutable', choice('&', seq('&', $.mutable_keyword))),
             $._type
         ),
         tuple_type: $ => seq('(', sepBy(',', $._type), ')'),
@@ -729,6 +735,7 @@ module.exports = grammar({
             '*',
             field('expr', $._expression),
         )),
+        mutable_keyword: $ => 'mut',
         // borrow
         borrow_expression: $ => prec(PRECEDENCE.unary, seq(
             choice('&', '&mut'),
@@ -884,6 +891,7 @@ module.exports = grammar({
             $.hex_string_literal,
             $.byte_string_literal,
             $.vector_literal,
+            $.global_literal,
         ),
         block_identifier: $ => seq($.label, ':'),
         label: $ => seq('\'', $.identifier),
@@ -892,6 +900,7 @@ module.exports = grammar({
         num_literal: $ => choice(/[0-9][0-9_]*(?:u8|u16|u32|u64|u128|u256)?/, /0x[a-fA-F0-9_]+/),
         hex_string_literal: $ => /x"[0-9a-fA-F]*"/,
         byte_string_literal: $ => /b"(\\.|[^\\"])*"/,
+        global_literal: $ => /[A-Z_][0-9A-Z_]*/,
         vector_literal: $ => seq("vector[", sepBy(",", $._literal_value), "]"),
         _module_identifier: $ => alias($.identifier, $.module_identifier),
         _struct_identifier: $ => alias($.identifier, $.struct_identifier),
