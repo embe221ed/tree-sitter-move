@@ -12,6 +12,7 @@
 (function_identifier) @function
 (variable_identifier) @variable
 (type_parameter_identifier) @type
+(primitive_type) @type
 (field_identifier) @property
 (constant_identifier) @property.static.constant
 
@@ -34,6 +35,8 @@
 (call_expression
   (module_access
     (identifier) @function))
+(macro_call_expression
+  (macro_module_access) @function.macro)
 (pack_expression
   (module_access
     (identifier) @struct @type))
