@@ -749,7 +749,7 @@ module.exports = grammar({
     mutable_keyword: $ => 'mut',
     // borrow
     borrow_expression: $ => prec(PRECEDENCE.unary, seq(
-      choice('&', '&mut'),
+      choice('&', seq('&', $.mutable_keyword)),
       field('expr', $._expression),
     )),
     // move or copy
