@@ -6298,8 +6298,17 @@
       ]
     },
     "address_literal": {
-      "type": "PATTERN",
-      "value": "@0x[a-fA-F0-9]+"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "@0x[a-fA-F0-9]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "@[A-Z_a-z][A-Za-z0-9_]*"
+        }
+      ]
     },
     "bool_literal": {
       "type": "CHOICE",

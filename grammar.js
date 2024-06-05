@@ -907,7 +907,7 @@ module.exports = grammar({
     ),
     block_identifier: $ => seq($.label, ':'),
     label: $ => seq('\'', $.identifier),
-    address_literal: $ => /@0x[a-fA-F0-9]+/,
+    address_literal: $ => choice(/@0x[a-fA-F0-9]+/, /@[A-Z_a-z][A-Za-z0-9_]*/),
     bool_literal: $ => choice('true', 'false'),
     num_literal: $ => choice(/[0-9][0-9_]*(?:u8|u16|u32|u64|u128|u256)?/, /0x[a-fA-F0-9_]+(?:u8|u16|u32|u64|u128|u256)?/),
     hex_string_literal: $ => /x"[0-9a-fA-F]*"/,

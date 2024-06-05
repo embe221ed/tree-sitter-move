@@ -194,6 +194,11 @@
     }
   },
   {
+    "type": "address_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "annotate_expression",
     "named": true,
     "fields": {
@@ -9033,10 +9038,6 @@
   {
     "type": "address",
     "named": false
-  },
-  {
-    "type": "address_literal",
-    "named": true
   },
   {
     "type": "apply",
