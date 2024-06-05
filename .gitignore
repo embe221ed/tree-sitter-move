@@ -1,6 +1,6 @@
-src
-node_modules
-build
+src/
+node_modules/
+build/
 *.log
 package-lock.json
-target
+target/
