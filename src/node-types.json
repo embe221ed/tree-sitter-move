@@ -8468,7 +8468,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "abort_expression",
@@ -8628,6 +8628,10 @@
         },
         {
           "type": "vector_expression",
+          "named": true
+        },
+        {
+          "type": "vector_keyword",
           "named": true
         },
         {
@@ -9352,12 +9356,8 @@
     "named": true
   },
   {
-    "type": "vector<",
-    "named": false
-  },
-  {
-    "type": "vector[",
-    "named": false
+    "type": "vector_keyword",
+    "named": true
   },
   {
     "type": "where",

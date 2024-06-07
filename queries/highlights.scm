@@ -31,7 +31,7 @@
 (apply_type
   (module_access
     (identifier) @type.defaultLibrary
-    (#match? @type.defaultLibrary "^u8|u64|u128|bool|address|signer|vector$")))
+    (#match? @type.defaultLibrary "^u8|u16|u32|u64|u128|bool|address|signer|vector$")))
 (call_expression
   (module_access
     (identifier) @function))
@@ -142,3 +142,4 @@
 "continue" @keyword
 "phantom" @keyword
 (mutable_keyword) @keyword
+(vector_keyword) @keyword

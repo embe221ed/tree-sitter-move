@@ -579,10 +579,11 @@ module.exports = grammar({
     ),
 
     vector_expression: $ => seq(
+      $.vector_keyword,
       choice(
-        "vector[",
+        "[",
         seq(
-          "vector<",
+          "<",
           sepBy1(',', $._type),
           '>',
           '[',
@@ -747,6 +748,7 @@ module.exports = grammar({
       field('expr', $._expression),
     )),
     mutable_keyword: $ => 'mut',
+    vector_keyword: $ => 'vector',
     // borrow
     borrow_expression: $ => prec(PRECEDENCE.unary, seq(
       choice('&', seq('&', $.mutable_keyword)),

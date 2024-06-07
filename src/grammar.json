@@ -3767,18 +3767,22 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "SYMBOL",
+          "name": "vector_keyword"
+        },
+        {
           "type": "CHOICE",
           "members": [
             {
               "type": "STRING",
-              "value": "vector["
+              "value": "["
             },
             {
               "type": "SEQ",
               "members": [
                 {
                   "type": "STRING",
-                  "value": "vector<"
+                  "value": "<"
                 },
                 {
                   "type": "SEQ",
@@ -5281,6 +5285,10 @@
     "mutable_keyword": {
       "type": "STRING",
       "value": "mut"
+    },
+    "vector_keyword": {
+      "type": "STRING",
+      "value": "vector"
     },
     "borrow_expression": {
       "type": "PREC",
