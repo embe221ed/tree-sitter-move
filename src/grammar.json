@@ -3739,10 +3739,6 @@
         {
           "type": "SYMBOL",
           "name": "match_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "vector_expression"
         }
       ]
     },

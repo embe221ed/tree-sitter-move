@@ -19,6 +19,9 @@
 (use_member
   member: (identifier) @member @variable @type
   alias: (identifier)? @member)
+(use_fun
+  (module_access
+    member: (identifier) @function))
 (spec_let
   name: (identifier) @property)
 (spec_property
@@ -141,5 +144,5 @@
 "break" @keyword
 "continue" @keyword
 "phantom" @keyword
-(mutable_keyword) @keyword
 (vector_keyword) @keyword
+(mutable_keyword) @keyword

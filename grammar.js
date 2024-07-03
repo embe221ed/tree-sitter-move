@@ -570,7 +570,7 @@ module.exports = grammar({
       $.quantifier_expression,
       $.identified_expression,
       $.match_expression,
-      $.vector_expression,
+      // $.vector_expression,
     ),
 
     identified_expression: $ => seq(
