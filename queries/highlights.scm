@@ -49,6 +49,10 @@
 (dot_expression
   access: (name_expression) @property)
 
+(dot_expression
+  access: (index_expression
+    expr: (name_expression) @property))
+
 (quantifier_binding
   (identifier) @parameter)
 
