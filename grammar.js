@@ -29,7 +29,7 @@ const PRECEDENCE = {
 
 module.exports = grammar({
   name: 'move',
-  extras: $ => [$._whitespace, $.line_comment, $.block_comment, $.empty_line, $.annotation],
+  extras: $ => [$._whitespace, $.line_comment, $.block_comment, $.newline, $.annotation],
   word: $ => $.identifier,
   supertypes: $ => [$._spec_block_target],
   conflicts: $ => [
@@ -100,7 +100,7 @@ module.exports = grammar({
     },
     module_body: $ => {
       return seq(
-        '{',
+        choice(';', '{'),
         repeat(
           choice(
             $.use_declaration,
@@ -111,7 +111,7 @@ module.exports = grammar({
             $._enum_item,
             $.spec_block,
           )),
-        '}'
+        optional('}'),
       );
     },
 
@@ -461,6 +461,8 @@ module.exports = grammar({
     module_access: $ => choice(
       // macro variable access
       seq('$', field('member', $.identifier)),
+      // address access
+      seq('@', field('member', $.identifier)),
       field('member', alias($._reserved_identifier, $.identifier)),
       field('member', $.identifier),
       seq(
@@ -777,6 +779,8 @@ module.exports = grammar({
 
       $.dot_expression,
       $.index_expression,
+      $.vector_expression,
+      $.match_expression,
     ),
     break_expression: $ => seq(
       'break',
@@ -844,7 +848,7 @@ module.exports = grammar({
       field('expr',
         $._expression_term,
       ),
-      '[', field('idx', $._expression), ']'
+      '[', sepBy(',', field('idx', $._expression)), ']'
     )),
 
     // Expression end
@@ -907,6 +911,7 @@ module.exports = grammar({
       $.global_literal,
       // $.vector_literal,
     ),
+
     block_identifier: $ => seq($.label, ':'),
     label: $ => seq('\'', $.identifier),
     address_literal: $ => choice(/@0x[a-fA-F0-9]+/, /@[A-Z_a-z][A-Za-z0-9_]*/),
@@ -933,7 +938,7 @@ module.exports = grammar({
     line_comment: $ => token(seq(
       '//', /.*/
     )),
-    empty_line: $ => token(seq(/[\n\r][\n\r]/)),
+    newline: $ => token(/\n/),
     _whitespace: $ => /\s/,
     // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
     block_comment: $ => token(seq(

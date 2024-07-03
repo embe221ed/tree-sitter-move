@@ -182,6 +182,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -336,6 +340,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -642,6 +650,10 @@
           "named": true
         },
         {
+          "type": "vector_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -725,6 +737,10 @@
             "named": true
           },
           {
+            "type": "match_expression",
+            "named": true
+          },
+          {
             "type": "move_or_copy_expression",
             "named": true
           },
@@ -750,6 +766,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           }
         ]
@@ -895,6 +915,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -987,6 +1011,10 @@
             "named": true
           },
           {
+            "type": "match_expression",
+            "named": true
+          },
+          {
             "type": "move_or_copy_expression",
             "named": true
           },
@@ -1012,6 +1040,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           }
         ]
@@ -1107,6 +1139,10 @@
             "named": true
           },
           {
+            "type": "match_expression",
+            "named": true
+          },
+          {
             "type": "move_or_copy_expression",
             "named": true
           },
@@ -1132,6 +1168,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           }
         ]
@@ -1470,6 +1510,10 @@
           "named": true
         },
         {
+          "type": "vector_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -1640,6 +1684,10 @@
           "named": true
         },
         {
+          "type": "vector_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -1796,6 +1844,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -1882,6 +1934,10 @@
             "named": true
           },
           {
+            "type": "match_expression",
+            "named": true
+          },
+          {
             "type": "name_expression",
             "named": true
           },
@@ -1899,6 +1955,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           }
         ]
@@ -2093,6 +2153,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -2291,6 +2355,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -2517,6 +2585,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -2593,6 +2665,10 @@
             "named": true
           },
           {
+            "type": "match_expression",
+            "named": true
+          },
+          {
             "type": "name_expression",
             "named": true
           },
@@ -2610,6 +2686,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           }
         ]
@@ -2679,6 +2759,10 @@
             "named": true
           },
           {
+            "type": "match_expression",
+            "named": true
+          },
+          {
             "type": "name_expression",
             "named": true
           },
@@ -2696,6 +2780,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           }
         ]
@@ -2918,6 +3006,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -3077,6 +3169,10 @@
         },
         {
           "type": "unit_expression",
+          "named": true
+        },
+        {
+          "type": "vector_expression",
           "named": true
         },
         {
@@ -3547,6 +3643,10 @@
           "named": true
         },
         {
+          "type": "vector_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -3703,6 +3803,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -3846,6 +3950,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -3995,6 +4103,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -4071,6 +4183,10 @@
             "named": true
           },
           {
+            "type": "match_expression",
+            "named": true
+          },
+          {
             "type": "name_expression",
             "named": true
           },
@@ -4089,12 +4205,16 @@
           {
             "type": "unit_expression",
             "named": true
+          },
+          {
+            "type": "vector_expression",
+            "named": true
           }
         ]
       },
       "idx": {
-        "multiple": false,
-        "required": true,
+        "multiple": true,
+        "required": false,
         "types": [
           {
             "type": "abort_expression",
@@ -4230,6 +4350,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -4437,6 +4561,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -4625,6 +4753,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -4800,6 +4932,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -5073,6 +5209,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -5224,6 +5364,10 @@
           "named": true
         },
         {
+          "type": "vector_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -5372,6 +5516,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -6017,6 +6165,10 @@
           "named": true
         },
         {
+          "type": "vector_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -6184,6 +6336,10 @@
         },
         {
           "type": "unit_expression",
+          "named": true
+        },
+        {
+          "type": "vector_expression",
           "named": true
         },
         {
@@ -6425,6 +6581,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -6589,6 +6749,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -6905,6 +7069,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -7058,6 +7226,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -7223,6 +7395,10 @@
           "named": true
         },
         {
+          "type": "vector_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -7381,6 +7557,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -7553,6 +7733,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -7976,6 +8160,10 @@
             "named": true
           },
           {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -8331,6 +8519,185 @@
     }
   },
   {
+    "type": "vector_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "abort_expression",
+          "named": true
+        },
+        {
+          "type": "address_literal",
+          "named": true
+        },
+        {
+          "type": "annotate_expression",
+          "named": true
+        },
+        {
+          "type": "apply_type",
+          "named": true
+        },
+        {
+          "type": "assign_expression",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "bool_literal",
+          "named": true
+        },
+        {
+          "type": "borrow_expression",
+          "named": true
+        },
+        {
+          "type": "break_expression",
+          "named": true
+        },
+        {
+          "type": "byte_string_literal",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "continue_expression",
+          "named": true
+        },
+        {
+          "type": "dereference_expression",
+          "named": true
+        },
+        {
+          "type": "dot_expression",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "function_type",
+          "named": true
+        },
+        {
+          "type": "global_literal",
+          "named": true
+        },
+        {
+          "type": "hex_string_literal",
+          "named": true
+        },
+        {
+          "type": "identified_expression",
+          "named": true
+        },
+        {
+          "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
+          "type": "loop_expression",
+          "named": true
+        },
+        {
+          "type": "macro_call_expression",
+          "named": true
+        },
+        {
+          "type": "match_expression",
+          "named": true
+        },
+        {
+          "type": "move_or_copy_expression",
+          "named": true
+        },
+        {
+          "type": "name_expression",
+          "named": true
+        },
+        {
+          "type": "num_literal",
+          "named": true
+        },
+        {
+          "type": "pack_expression",
+          "named": true
+        },
+        {
+          "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "quantifier_expression",
+          "named": true
+        },
+        {
+          "type": "ref_type",
+          "named": true
+        },
+        {
+          "type": "return_expression",
+          "named": true
+        },
+        {
+          "type": "spec_block",
+          "named": true
+        },
+        {
+          "type": "tuple_type",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unit_expression",
+          "named": true
+        },
+        {
+          "type": "vector_expression",
+          "named": true
+        },
+        {
+          "type": "vector_keyword",
+          "named": true
+        },
+        {
+          "type": "while_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "while_expression",
     "named": true,
     "fields": {
@@ -8472,6 +8839,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -8618,6 +8989,10 @@
           },
           {
             "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
             "named": true
           },
           {
@@ -8793,10 +9168,6 @@
     "named": false
   },
   {
-    "type": "empty_line",
-    "named": true
-  },
-  {
     "type": "ensures",
     "named": false
   },
@@ -8923,6 +9294,10 @@
   {
     "type": "native",
     "named": false
+  },
+  {
+    "type": "newline",
+    "named": true
   },
   {
     "type": "package_param",
