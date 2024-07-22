@@ -1,3 +1,5 @@
+(module_definition) @context
+
 (if_expression) @context
 
 (while_expression) @context

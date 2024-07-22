@@ -54,7 +54,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -199,7 +199,86 @@
     "fields": {}
   },
   {
-    "type": "annotate_expression",
+    "type": "annotation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_expr",
+    "named": true,
+    "fields": {
+      "local_const": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "::",
+            "named": false
+          },
+          {
+            "type": "module_access",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "address_literal",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "byte_string_literal",
+            "named": true
+          },
+          {
+            "type": "global_literal",
+            "named": true
+          },
+          {
+            "type": "hex_string_literal",
+            "named": true
+          },
+          {
+            "type": "module_access",
+            "named": true
+          },
+          {
+            "type": "num_literal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "annotation_expression",
     "named": true,
     "fields": {
       "expr": {
@@ -215,7 +294,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -381,60 +460,55 @@
     }
   },
   {
-    "type": "annotation",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "annotation_item",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "annotation_item",
     "named": true,
     "fields": {
+      "annotation_expr": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "annotation_expr",
+            "named": true
+          }
+        ]
+      },
+      "annotation_list": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "annotation_list",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "annotation_list",
+    "named": true,
+    "fields": {
+      "local_const": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "::",
+            "named": false
+          },
+          {
+            "type": "module_access",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
         "types": [
           {
             "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "address_literal",
-            "named": true
-          },
-          {
-            "type": "bool_literal",
-            "named": true
-          },
-          {
-            "type": "byte_string_literal",
-            "named": true
-          },
-          {
-            "type": "global_literal",
-            "named": true
-          },
-          {
-            "type": "hex_string_literal",
-            "named": true
-          },
-          {
-            "type": "num_literal",
             "named": true
           }
         ]
@@ -446,6 +520,10 @@
       "types": [
         {
           "type": "address_literal",
+          "named": true
+        },
+        {
+          "type": "annotation_item",
           "named": true
         },
         {
@@ -462,10 +540,6 @@
         },
         {
           "type": "hex_string_literal",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -522,7 +596,7 @@
           "named": true
         },
         {
-          "type": "annotate_expression",
+          "type": "annotation_expression",
           "named": true
         },
         {
@@ -673,7 +747,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -787,7 +861,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -939,7 +1013,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -1067,7 +1141,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -1374,7 +1448,7 @@
           "named": true
         },
         {
-          "type": "annotate_expression",
+          "type": "annotation_expression",
           "named": true
         },
         {
@@ -1552,7 +1626,7 @@
           "named": true
         },
         {
-          "type": "annotate_expression",
+          "type": "annotation_expression",
           "named": true
         },
         {
@@ -1716,7 +1790,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -1878,7 +1952,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -2028,7 +2102,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -2230,7 +2304,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -2457,7 +2531,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -2609,7 +2683,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -2703,7 +2777,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -2878,7 +2952,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -3044,7 +3118,7 @@
           "named": true
         },
         {
-          "type": "annotate_expression",
+          "type": "annotation_expression",
           "named": true
         },
         {
@@ -3515,7 +3589,7 @@
           "named": true
         },
         {
-          "type": "annotate_expression",
+          "type": "annotation_expression",
           "named": true
         },
         {
@@ -3675,7 +3749,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -3825,7 +3899,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -3975,7 +4049,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -4127,7 +4201,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -4225,7 +4299,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -4433,7 +4507,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -4625,7 +4699,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -4807,7 +4881,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -5081,7 +5155,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -5232,7 +5306,7 @@
           "named": true
         },
         {
-          "type": "annotate_expression",
+          "type": "annotation_expression",
           "named": true
         },
         {
@@ -5391,7 +5465,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -6013,7 +6087,7 @@
           "named": true
         },
         {
-          "type": "annotate_expression",
+          "type": "annotation_expression",
           "named": true
         },
         {
@@ -6207,7 +6281,7 @@
           "named": true
         },
         {
-          "type": "annotate_expression",
+          "type": "annotation_expression",
           "named": true
         },
         {
@@ -6453,7 +6527,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -6624,7 +6698,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -6941,7 +7015,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -7101,7 +7175,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -7267,7 +7341,7 @@
           "named": true
         },
         {
-          "type": "annotate_expression",
+          "type": "annotation_expression",
           "named": true
         },
         {
@@ -7432,7 +7506,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -7608,7 +7682,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -8032,7 +8106,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -8535,7 +8609,7 @@
           "named": true
         },
         {
-          "type": "annotate_expression",
+          "type": "annotation_expression",
           "named": true
         },
         {
@@ -8714,7 +8788,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {
@@ -8864,7 +8938,7 @@
             "named": true
           },
           {
-            "type": "annotate_expression",
+            "type": "annotation_expression",
             "named": true
           },
           {

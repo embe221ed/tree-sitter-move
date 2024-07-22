@@ -17,7 +17,8 @@
 (constant_identifier) @property.static.constant
 
 (use_member
-  member: (identifier) @member @variable @type
+  module: (identifier)? @member @namespace
+  member: (identifier)? @member @variable @type
   alias: (identifier)? @member)
 (use_fun
   (module_access
