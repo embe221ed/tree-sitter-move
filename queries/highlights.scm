@@ -76,6 +76,14 @@
 
 (spec_apply_name_pattern) @struct
 
+(annotation_item
+  (annotation_list
+    name: (identifier) @lsp.type.decorator))
+
+(annotation
+  (annotation_item
+    (annotation_expr
+      name: (identifier) @lsp.type.decorator)))
 
 (line_comment) @comment
 (
