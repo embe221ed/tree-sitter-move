@@ -475,6 +475,7 @@ module.exports = grammar({
         '::',
         field('member', $.identifier)
       ),
+      seq($.module_identity, '::', field('enum_name', $.identifier), '::', field('variant', $.identifier)),
     ),
 
     friend_access: $ => choice(
@@ -558,6 +559,8 @@ module.exports = grammar({
     // Expression
 
     _expression: $ => choice(
+      $.call_expression,
+      $.macro_call_expression,
       $.lambda_expression,
       $.if_expression,
       $.while_expression,
@@ -760,7 +763,7 @@ module.exports = grammar({
     // move or copy
     move_or_copy_expression: $ => prec(PRECEDENCE.unary, seq(
       choice('move', 'copy'),
-      field('expr', $._variable_identifier),
+      field('expr', $._expression),
     )),
 
     _expression_term: $ => choice(
@@ -886,20 +889,22 @@ module.exports = grammar({
       $.bind_positional_fields,
       $.bind_named_fields,
     ),
+    _spread_operator: _$ => '..',
     bind_positional_fields: $ => seq(
       '(', sepBy(',', $.bind_field), ')'
     ),
     bind_named_fields: $ => seq(
       '{', sepBy(',', $.bind_field), '}'
     ),
-    bind_field: $ => seq(
+    // not sure if it should be here
+    bind_field: $ => choice(seq(
       optional($.mutable_keyword),
-      field('field', $._field_identifier), // direct bind
+      field('field', choice($._expression)), // direct bind
       optional(seq(
         ':',
         field('bind', $._bind)
       ))
-    ),
+    ), $._spread_operator),
     // Fields and Bindings - End
 
     // literals
