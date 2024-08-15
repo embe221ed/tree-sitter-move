@@ -668,7 +668,11 @@
       "members": [
         {
           "type": "STRING",
-          "value": "#["
+          "value": "#"
+        },
+        {
+          "type": "STRING",
+          "value": "["
         },
         {
           "type": "SEQ",
@@ -1544,8 +1548,8 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "macro"
+          "type": "SYMBOL",
+          "name": "macro_keyword"
         },
         {
           "type": "SYMBOL",
@@ -5302,6 +5306,10 @@
     "mutable_keyword": {
       "type": "STRING",
       "value": "mut"
+    },
+    "macro_keyword": {
+      "type": "STRING",
+      "value": "macro"
     },
     "vector_keyword": {
       "type": "STRING",

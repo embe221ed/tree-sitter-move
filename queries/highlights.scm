@@ -78,12 +78,12 @@
 
 (annotation_item
   (annotation_list
-    name: (identifier) @lsp.type.decorator))
+    name: (identifier) @function.macro))
 
 (annotation
   (annotation_item
     (annotation_expr
-      name: (identifier) @lsp.type.decorator)))
+      name: (identifier) @function.macro)))
 
 (line_comment) @comment
 (
@@ -99,6 +99,7 @@
 (condition_kind) @macro
 (invariant_modifier) @modifier
 
+"#" @punctuation.special
 "(" @punctuation.bracket
 ")" @punctuation.bracket
 "[" @punctuation.bracket
@@ -159,3 +160,4 @@
 "phantom" @keyword
 (vector_keyword) @keyword
 (mutable_keyword) @keyword
+(macro_keyword) @keyword

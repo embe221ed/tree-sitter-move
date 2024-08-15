@@ -118,7 +118,8 @@ module.exports = grammar({
 
     // Annotations
     annotation: $ => seq(
-      "#[",
+      "#",
+      "[",
       sepBy1(",", $.annotation_item),
       "]"
     ),
@@ -246,7 +247,7 @@ module.exports = grammar({
     ),
     macro_function_definition: $ => seq(
       optional($.modifier),
-      'macro',
+      $.macro_keyword,
       $._macro_signature,
       field('body', $.block)
     ),
@@ -749,6 +750,7 @@ module.exports = grammar({
       field('expr', $._expression),
     )),
     mutable_keyword: $ => 'mut',
+    macro_keyword: $ => 'macro',
     vector_keyword: $ => 'vector',
     // borrow
     borrow_expression: $ => prec(PRECEDENCE.unary, seq(

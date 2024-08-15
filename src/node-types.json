@@ -5113,8 +5113,12 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "macro_keyword",
+          "named": true
+        },
         {
           "type": "modifier",
           "named": true
@@ -9082,7 +9086,7 @@
     "named": false
   },
   {
-    "type": "#[",
+    "type": "#",
     "named": false
   },
   {
@@ -9342,8 +9346,8 @@
     "named": false
   },
   {
-    "type": "macro",
-    "named": false
+    "type": "macro_keyword",
+    "named": true
   },
   {
     "type": "match",
