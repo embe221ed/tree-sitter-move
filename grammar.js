@@ -36,10 +36,13 @@ module.exports = grammar({
     [$.annotation_expr, $.module_access],
     [$._expression, $._expression_term],
     [$.function_type_parameters],
-    [$.name_expression, $.call_expression, $.pack_expression],
     [$.module_access, $._variable_identifier],
     [$.modifier, $.native_struct_definition],
     [$._expression, $._binary_operand],
+    [$.bind_list, $.or_bind_list],
+    [$.comma_bind_list, $.or_bind_list],
+    [$.or_bind_list],
+    [$.name_expression],
   ],
 
   rules: {
@@ -615,9 +618,13 @@ module.exports = grammar({
       optional(seq('->', $._type)),
       field('expr', $._expression)
     ),
+    lambda_binding: $ => choice(
+      field('bind', $._bind),
+      seq(field('bind', $._bind), optional(seq(':', field('ty', $._type)))),
+    ),
     lambda_bindings: $ => seq(
       '|',
-      sepBy(',', $._bind),
+      sepBy(',', $.lambda_binding),
       '|'
     ),
     // if-else expression
@@ -671,17 +678,34 @@ module.exports = grammar({
       '}',
     ),
 
+    match_condition: $ => seq(
+      'if', field('condition', $._expression)
+    ),
+
     match_arm: $ => seq(
       $.bind_list,
-      optional(seq(
-        'if',
-        field('arm_guard', $._expression)
-      )
-      ),
+      optional($.match_condition),
       '=>',
       $._expression,
     ),
 
+    call_expression: $ => prec.dynamic(1, seq(
+      $.name_expression,
+      field('args', $.arg_list),
+    )),
+    macro_call_expression: $ => seq(
+      field('access', $.macro_module_access),
+      optional(field('type_arguments', $.type_arguments)),
+      field('args', $.arg_list),
+    ),
+    pack_expression: $ => seq(
+      $.name_expression,
+      field('body', $.field_initialize_list),
+    ),
+    name_expression: $ => seq(
+      field('access', $.module_access),
+      optional(field('type_arguments', $.type_arguments)),
+    ),
 
     assign_expression: $ => prec.left(PRECEDENCE.assign,
       seq(
@@ -767,10 +791,10 @@ module.exports = grammar({
     )),
 
     _expression_term: $ => choice(
+      $.call_expression,
       $.break_expression,
       $.continue_expression,
       $.name_expression,
-      $.call_expression,
       $.macro_call_expression,
       $.pack_expression,
       $._literal_value,
@@ -794,25 +818,6 @@ module.exports = grammar({
     continue_expression: $ => seq(
       'continue',
       optional(field('label', $.label)),
-    ),
-    name_expression: $ => seq(
-      field('access', $.module_access),
-      optional(field('type_arguments', $.type_arguments)),
-    ),
-    call_expression: $ => seq(
-      field('access', $.module_access),
-      optional(field('type_arguments', $.type_arguments)),
-      field('args', $.arg_list),
-    ),
-    macro_call_expression: $ => seq(
-      field('access', $.macro_module_access),
-      optional(field('type_arguments', $.type_arguments)),
-      field('args', $.arg_list),
-    ),
-    pack_expression: $ => seq(
-      field('access', $.module_access),
-      optional(field('type_arguments', $.type_arguments)),
-      field('body', $.field_initialize_list),
     ),
 
     field_initialize_list: $ => seq(
@@ -866,19 +871,22 @@ module.exports = grammar({
       ))
     ),
 
-    // The bindlist is enclosed in parenthesis, except that the parenthesis are
-    // optional if there is a single Bind.
     bind_list: $ => choice(
       $._bind,
-      seq('(', sepBy(',', $._bind), ')')
+      $.comma_bind_list,
+      $.or_bind_list,
     ),
+    at_bind: $ => seq($._variable_identifier, '@', $.bind_list),
+    comma_bind_list: $ => seq('(', sepBy(',', $._bind), ')'),
+    or_bind_list: $ => seq(optional('('), sepBy1('|', $._bind), optional(')')),
     _bind: $ => choice(
       seq(
         optional($.mutable_keyword),
         alias($._variable_identifier, $.bind_var)
       ),
       $.bind_unpack,
-      seq($._variable_identifier, '@', $._bind),
+      $.at_bind,
+      $._literal_value,
     ),
     bind_unpack: $ => seq(
       $.module_access,
@@ -902,7 +910,7 @@ module.exports = grammar({
       field('field', choice($._expression)), // direct bind
       optional(seq(
         ':',
-        field('bind', $._bind)
+        field('bind', $.bind_list)
       ))
     ), $._spread_operator),
     // Fields and Bindings - End

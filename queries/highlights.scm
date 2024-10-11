@@ -22,7 +22,10 @@
   alias: (identifier)? @member)
 (use_fun
   (module_access
-    member: (identifier) @function))
+    member: (identifier) @function)
+  alias: (module_access
+    member: (identifier) @type)
+  alias: (function_identifier) @function)
 (spec_let
   name: (identifier) @property)
 (spec_property
