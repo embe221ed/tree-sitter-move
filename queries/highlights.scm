@@ -166,3 +166,4 @@
 (vector_keyword) @keyword
 (mutable_keyword) @keyword
 (macro_keyword) @keyword
+(enum_keyword) @keyword

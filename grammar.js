@@ -184,7 +184,7 @@ module.exports = grammar({
       optional(field('postfix_ability_declarations', $.postfix_ability_decls)),
     ),
     _enum_signature: $ => seq(
-      'enum',
+      $.enum_keyword,
       field('name', $._enum_identifier),
       optional(field('type_parameters', $.type_parameters)),
       optional(field('ability_declarations', $.ability_decls)),
@@ -779,6 +779,7 @@ module.exports = grammar({
     mutable_keyword: $ => 'mut',
     macro_keyword: $ => 'macro',
     vector_keyword: $ => 'vector',
+    enum_keyword: $ => 'enum',
     // borrow
     borrow_expression: $ => prec(PRECEDENCE.unary, seq(
       choice('&', seq('&', $.mutable_keyword)),
