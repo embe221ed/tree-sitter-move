@@ -40,13 +40,15 @@
     (identifier) @type.defaultLibrary
     (#match? @type.defaultLibrary "^u8|u16|u32|u64|u128|bool|address|signer|vector$")))
 (call_expression
-  (module_access
-    (identifier) @function))
+  (name_expression
+    access: (module_access
+      (identifier) @function)))
 (macro_call_expression
   (macro_module_access) @function.macro)
 (pack_expression
-  (module_access
-    (identifier) @struct @type))
+  (name_expression
+    access: (module_access
+    (identifier) @struct @type)))
 (bind_unpack
   (module_access
     (identifier) @struct @type))
