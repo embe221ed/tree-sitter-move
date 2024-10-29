@@ -1,5 +1,51 @@
-(address_literal) @number
+;; Highlights file for Move
+
+;; Types
+(type_parameters) @type
+(type_parameter) @type
+(type_parameter_identifier) @type
+(apply_type)  @type
+(ref_type)  @type.ref
+(primitive_type) @type.builtin
+
+;; Comments
+(line_comment) @comment
+(block_comment) @comment
+
+;; Annotations
+(annotation) @annotation
+(annotation_item) @annotation.item
+
+;; Constants
+(constant name: (constant_identifier)  @constant.name)
+(constant expr: (num_literal)  @constant.value)
+((identifier) @constant.name
+ (#match? @constant.name "^[A-Z][A-Z\\d_]+$'"))
+
+;; Function definitions
+(function_definition name: (function_identifier)  @function)
+(macro_function_definition name: (function_identifier)  @macro)
+(native_function_definition name: (function_identifier)  @function)
+(usual_spec_function name: (function_identifier)  @function)
+(function_parameter name: (variable_identifier)  @variable.parameter)
+
+;; Module definitions
+(module_identity address: (module_identifier)  @namespace.module.address)
+(module_identity module: (module_identifier)  @namespace.module.name)
+
+;; Function calls
+(call_expression (name_expression access: (module_access module: (module_identifier)  @namespace.module.name)))
+(call_expression (name_expression access: (module_access member: (identifier)  @function.call)))
+
+
+(label (identifier)  @label)
+
+;; Macro calls
+(macro_call_expression access: (macro_module_access) @macro.call)
+
+;; Literals
 (num_literal) @number
+(address_literal) @number
 (byte_string_literal) @string
 (hex_string_literal) @string
 (bool_literal) @boolean
@@ -54,6 +100,9 @@
     (identifier) @struct @type))
 (dot_expression
   access: (name_expression) @property)
+;; Uses
+(use_member member: (identifier)  @include.member)
+(use_module alias: (module_identifier) @namespace.module.name)
 
 (dot_expression
   access: (index_expression
@@ -61,6 +110,35 @@
 
 (quantifier_binding
   (identifier) @parameter)
+(function_identifier) @function.name
+
+;; Friends
+; (friend_access local_module: (identifier)  @namespace.module.name)
+
+;; Structs
+(struct_definition name: (struct_identifier)  @type.definition.struct)
+(ability) @type.ability
+(field_annotation field: (field_identifier)  @field.identifier)
+(field_identifier) @field.identifier
+
+;; Enums
+(enum_definition name: (enum_identifier)  @type.definition.struct)
+(variant variant_name: (variant_identifier)  @constructor.name)
+
+;; Packs
+(pack_expression (name_expression access: (module_access)  @constructor.name))
+
+;; Unpacks
+;; TODO: go into variants
+(bind_unpack (module_access)  @type.name)
+(module_access "$" (identifier)  @macro.variable)
+"$"  @macro.variable
+
+(module_access module: (module_identifier)  member: (identifier) @constructor.name)
+
+;; Lambdas
+; (lambda_binding bind: (bind_var (variable_identifier)  @variable.parameter))
+; (lambda_bindings (bind_var (variable_identifier)  @variable.parameter))
 
 
 (function_parameters
@@ -89,6 +167,13 @@
   (annotation_item
     (annotation_expr
       name: (identifier) @function.macro)))
+;; Spec keywords
+; "opaque" @keyword
+; "aborts_if" @keyword
+; "abstract" @keyword
+[
+ "pragma"
+] @keyword
 
 (line_comment) @comment
 (
@@ -126,44 +211,46 @@
 "," @punctuation.delimiter
 ";" @punctuation.delimiter
 
-"const" @keyword
-"as" @keyword
-"address" @keyword
-"use" @keyword
-"entry" @keyword
-"friend" @keyword
-"has" @keyword
-"module" @keyword
-"native" @keyword
-"struct" @keyword
-"public" @keyword
-"fun" @keyword
-"spec" @keyword
-"schema" @keyword
-"include" @keyword
-"apply" @keyword
-"to" @keyword
-"with" @keyword
-"internal" @keyword
-"pragma" @keyword
-"global" @keyword
-"local" @keyword
-"copy" @keyword
-"drop" @keyword
-"key" @keyword
-"store" @keyword
-"move" @keyword
-"let" @keyword
-"if" @keyword
-"else" @keyword
-"while" @keyword
-"loop" @keyword
-"return" @keyword
-"abort" @keyword
-"break" @keyword
-"continue" @keyword
-"phantom" @keyword
-(vector_keyword) @keyword
-(mutable_keyword) @keyword
-(macro_keyword) @keyword
-(enum_keyword) @keyword
+[
+  "const"
+  "as"
+  "address"
+  "use"
+  "entry"
+  "friend"
+  "has"
+  "module"
+  "native"
+  "struct"
+  "public"
+  "fun"
+  "spec"
+  "schema"
+  "include"
+  "apply"
+  "to"
+  "with"
+  "internal"
+  "pragma"
+  "global"
+  "local"
+  "copy"
+  "drop"
+  "key"
+  "store"
+  "move"
+  "let"
+  "if"
+  "else"
+  "while"
+  "loop"
+  "return"
+  "abort"
+  "break"
+  "continue"
+  "phantom"
+  (vector_keyword)
+  (mutable_keyword)
+  (macro_keyword)
+  (enum_keyword)
+] @keyword
