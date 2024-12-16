@@ -96,8 +96,9 @@
     access: (module_access
     (identifier) @struct @type)))
 (bind_unpack
-  (module_access
-    (identifier) @struct @type))
+  (name_expression
+    access: (module_access
+    (identifier) @struct @type)))
 (dot_expression
   access: (name_expression) @property)
 ;; Uses
@@ -130,11 +131,13 @@
 
 ;; Unpacks
 ;; TODO: go into variants
-(bind_unpack (module_access)  @type.name)
+(bind_unpack (name_expression)  @type.name)
 (module_access "$" (identifier)  @macro.variable)
 "$"  @macro.variable
 
 (module_access module: (module_identifier)  member: (identifier) @constructor.name)
+
+(abort_expression) @keyword
 
 ;; Lambdas
 ; (lambda_binding bind: (bind_var (variable_identifier)  @variable.parameter))
@@ -142,15 +145,13 @@
 
 
 (function_parameters
-  (function_parameter
-    name: (variable_identifier) @parameter.modification
-    type: (ref_type
-            mutable: ("&") (mutable_keyword))))
+  (mut_function_parameter
+    (mutable_keyword)
+    (function_parameter
+      name: (variable_identifier) @parameter.modification)))
 (function_parameters
   (function_parameter
-    name: (variable_identifier) @parameter.readonly
-    type: (ref_type
-            mutable: "&")))
+    name: (variable_identifier) @parameter.readonly))
 
 (binary_expression
   operator: (binary_operator) @operator)
@@ -249,6 +250,7 @@
   "break"
   "continue"
   "phantom"
+  "match"
   (vector_keyword)
   (mutable_keyword)
   (macro_keyword)
