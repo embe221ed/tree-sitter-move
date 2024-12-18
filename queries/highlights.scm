@@ -135,8 +135,6 @@
 (module_access "$" (identifier)  @macro.variable)
 "$"  @macro.variable
 
-(module_access module: (module_identifier)  member: (identifier) @constructor.name)
-
 (abort_expression) @keyword
 
 ;; Lambdas
@@ -145,13 +143,15 @@
 
 
 (function_parameters
-  (mut_function_parameter
-    (mutable_keyword)
-    (function_parameter
-      name: (variable_identifier) @parameter.modification)))
+  (function_parameter
+    name: (variable_identifier) @parameter.modification
+    type: (ref_type
+      (mut_ref))))
 (function_parameters
   (function_parameter
-    name: (variable_identifier) @parameter.readonly))
+    name: (variable_identifier) @parameter.readonly
+    type: (ref_type
+      (imm_ref))))
 
 (binary_expression
   operator: (binary_operator) @operator)
@@ -190,6 +190,7 @@
 (condition_kind) @macro
 (invariant_modifier) @modifier
 
+"&" @punctuation.special
 "#" @punctuation.special
 "(" @punctuation.bracket
 ")" @punctuation.bracket
