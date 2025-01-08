@@ -490,6 +490,12 @@ module.exports = grammar({
       ),
       seq(
         field('module', $._module_identifier),
+        '::',
+        field('member', $.identifier),
+        optional(field('type_arguments', $.type_arguments)),
+      ),
+      seq(
+        field('module', $._module_identifier),
         optional(field('type_arguments', $.type_arguments)),
         '::',
         field('member', $.identifier)
