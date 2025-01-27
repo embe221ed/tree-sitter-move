@@ -513,6 +513,12 @@ module.exports = grammar({
       seq(
         $.module_identity,
         '::',
+        field('member', $.identifier),
+        optional(field('type_arguments', $.type_arguments)),
+      ),
+      seq(
+        $.module_identity,
+        '::',
         field('enum_name', $.identifier),
         optional(field('type_arguments', $.type_arguments)),
         '::',
