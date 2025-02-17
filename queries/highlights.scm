@@ -32,6 +32,7 @@
 ;; Module definitions
 (module_identity address: (module_identifier)  @namespace.module.address)
 (module_identity module: (module_identifier)  @namespace.module.name)
+(use_module_members address: (module_identifier)  @namespace.module.address)
 
 ;; Function calls
 (call_expression (name_expression access: (module_access module: (module_identifier)  @namespace.module.name)))
@@ -53,7 +54,6 @@
 (friend_param) @module
 (package_param) @module
 
-(module_identifier) @class @variable @namespace
 (struct_identifier) @struct @variable @type
 (function_identifier) @function
 (variable_identifier) @variable
@@ -63,9 +63,9 @@
 (constant_identifier) @property.static.constant
 
 (use_member
-  module: (identifier)? @member @namespace
-  member: (identifier)? @member @variable @type
-  alias: (identifier)? @member)
+  module: (identifier)? @namespace.module.name
+  member: (identifier)? @variable.member @type
+  alias: (identifier)? @variable.member)
 (use_fun
   (module_access
     member: (identifier) @function)
@@ -134,8 +134,6 @@
 (bind_unpack (name_expression)  @type.name)
 (module_access "$" (identifier)  @macro.variable)
 "$"  @macro.variable
-
-(abort_expression) @keyword
 
 ;; Lambdas
 ; (lambda_binding bind: (bind_var (variable_identifier)  @variable.parameter))
