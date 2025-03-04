@@ -9,3 +9,5 @@
 ) @context
 
 (struct_definition) @context
+
+(macro_call_expression) @context
